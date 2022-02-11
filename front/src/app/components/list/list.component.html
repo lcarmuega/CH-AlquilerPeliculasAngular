@@ -1,0 +1,9 @@
+<div class="container-movies">
+  <div class="card" *ngFor="let movie of movies" style="width: 18rem;">
+    <img [src]="imgurl + movie.poster_path" class="card-img-top" alt="Poster de {{ movie.title }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ movie.title }}</h5>
+      <a class="button btn" (click)="navigateToDetails(movie.id)">Ver + detalles</a>
+    </div>
+  </div>
+</div>

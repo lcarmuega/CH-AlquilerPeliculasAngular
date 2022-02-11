@@ -1,0 +1,5 @@
+<div *ngFor="let user of users; let i = index" (click)="navigateToUser(user.id)">
+  <span>{{ user?.nombre }} </span>
+  -
+  <span>{{ user?.email }} </span>
+</div>

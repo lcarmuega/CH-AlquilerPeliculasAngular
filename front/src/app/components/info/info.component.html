@@ -1,0 +1,10 @@
+<div class="container">
+  <img [src]="imgurl+movie?.poster_path" alt="Poster de [nombre pelicula]" class="image-movie">
+  <div class="container-side">
+    <h5 class="title">{{ movie?.title }}</h5>
+    <div class="text-container">
+      <p>{{ movie?.overview }}</p>
+    </div>
+    <a class="button btn" (click)="addToCart(movie?.id)">Agregar al carrito</a>
+  </div>
+</div>

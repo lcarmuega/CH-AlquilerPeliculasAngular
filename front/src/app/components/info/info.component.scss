@@ -1,0 +1,40 @@
+.image-movie {
+  height: 400px;
+}
+
+.text-container {
+  text-align: center;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: medium;
+}
+
+.title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 900;
+  align-self: center;
+  font-size: x-large;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 90px;
+}
+
+.container-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.button {
+  color: #fff;
+  background-color: #f86565;
+  border-color: #f86565;
+  width: 150px;
+  align-self: center;
+}

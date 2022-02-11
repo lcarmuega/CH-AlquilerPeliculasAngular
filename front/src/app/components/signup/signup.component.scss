@@ -1,0 +1,30 @@
+h2 {
+  display: flex;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+  margin: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  width: 25%;
+}
+
+.primary-button {
+  justify-content: center;
+  color: #fff;
+  background-color: #f86565;
+  border-color: #f86565;
+}
+
+.secondary-button {
+  display: block;
+  color: #839df3;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

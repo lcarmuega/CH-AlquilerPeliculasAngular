@@ -1,0 +1,27 @@
+<div class="main-container">
+
+  <div class="product-container" *ngIf="cartItems$">
+
+    <div class="card" *ngFor="let item of cartItems$ | async">
+      <div class="movie-image ">
+        <img [src]="imgurl + item.poster_path" class="img-fluid rounded-start" alt="Poster de pelicula">
+      </div>
+      <div class="body-card">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text"><small class="text-muted">$500</small></p>
+        <a type="button" class="remove-button" (click)="removeMovie(item.id)">Eliminar del carrito</a>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="details-container">
+    <h6 class="title-details">Detalles de la compra</h6>
+    <p style="font-size: medium;">Total: ${{ cartTotal$ | async }}</p>
+    <a class="button btn" (click)="finishPurchase()">Finalizar compra</a>
+    <a type="button" class="remove-button" (click)="clearCart()">Vaciar carrito</a>
+
+  </div>
+
+</div>

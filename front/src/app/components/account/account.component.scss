@@ -1,0 +1,46 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+mat-card {
+  background-color: rgb(247, 247, 247);
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.button {
+  display: inline;
+  justify-content: flex-end;
+}
+
+.logout {
+  color: red;
+}
+
+h5 {
+  font-size: small;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.admin-button {
+  margin-top: 15px;
+  display: block;
+  background-color: red;
+  color: white;
+}

@@ -1,0 +1,53 @@
+<h2>Crear Cuenta</h2>
+
+<div class="form-container">
+  <form [formGroup]="signupForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre completo</label>
+      <input type="email" class="form-control" name="name" id="name" aria-describedby="emailHelp" formControlName="name">
+      <div *ngIf="nameControl.invalid && (nameControl.dirty || nameControl.touched)" class="alert alert-danger">
+        <div *ngIf="nameControl.hasError('required')">
+          El nombre es requerido
+        </div>
+        <div *ngIf="nameControl.hasError('minlength')">
+          El nombre debe ser de 2 o más caracteres
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" formControlName="email">
+      <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)" class="alert alert-danger">
+        <div *ngIf="emailControl.hasError('required')">
+          El email es requerido
+        </div>
+        <div *ngIf="emailControl.hasError('email')">
+          Ingrese un email válido
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" name="password" id="password" formControlName="password">
+      <div *ngIf="passwordControl.invalid && (passwordControl.dirty || passwordControl.touched)" class="alert alert-danger">
+        <div *ngIf="passwordControl.hasError('required')">
+          Ingrese una contraseña
+        </div>
+        <div *ngIf="passwordControl.hasError('minlength')">
+          Su contraseña debe ser de 5 o más caracteres
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="passwordConfirmation" class="form-label">Repetir Contraseña</label>
+      <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" formControlName="passwordConfirmation">
+      <div *ngIf="passwordConfirmationControl.invalid && (passwordConfirmationControl.dirty || passwordConfirmationControl.touched)" class="alert alert-danger">
+        <div *ngIf="passwordConfirmationControl.hasError('required')">
+          Repita su contraseña
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn primary-button" (click)="trySignup()" [disabled]="signupForm.invalid">Crear Cuenta</button>
+    <a class="btn secondary-button" routerLink="/login">Volver al inicio de sesión</a>
+  </form>
+</div>
