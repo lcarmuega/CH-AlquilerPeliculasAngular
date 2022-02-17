@@ -44,15 +44,22 @@ export class AdminService {
     );
   }
 
-  updateUser(id: string, nombre: string, email: string, password: string, rol: string): Observable<boolean>{
+  //id: string, nombre: string, email: string, password: string, rol: string
+
+  updateUser(user: User): Observable<any>{
     let headers = new HttpHeaders();
     let token = this.loginService.getToken();
     headers = headers.set('Authorization', token);
 
+    let id = user.id;
+    let nombre = user.nombre;
+    let email = user.email;
+    let password = user.password;
+    let rol = user.rol;
+
     return this.httpClient.put<any>(`${this.url}?id=${id}`, { nombre, email, password, rol }, { headers: headers })
       .pipe(
         map( response => {
-          console.log(response)
           if(response.status === 200){
             return true;
           } else {

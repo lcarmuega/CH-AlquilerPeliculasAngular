@@ -25,7 +25,6 @@ export class UserListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.adminService.getUsers().subscribe( users => {
       this.users = users;
-      console.log(this.users)
     } );
   }
 

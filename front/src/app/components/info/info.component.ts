@@ -35,8 +35,6 @@ export class InfoComponent implements OnInit, OnDestroy {
   }
 
   addToCart(id: number | undefined) {
-    console.log('added ' + id + ' to cart');
-    console.log(this.movie)
     if (this.movie != undefined) {
       this.store.dispatch(cartAddMovie({ item: this.movie }));
       this.router.navigate(['carrito']);

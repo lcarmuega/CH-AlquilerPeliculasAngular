@@ -46,7 +46,6 @@ export class UserService {
     return this.httpClient.put<any>(`${this.url}?id=${id}`, { nombre, email, password, rol }, { headers: headers })
       .pipe(
         map( response => {
-          console.log(response)
           if(response.status === 200){
             sessionStorage.setItem('user', JSON.stringify(response.user));
             return true;

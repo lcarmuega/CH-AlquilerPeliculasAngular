@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { AdminService } from '../../services/admin.service';
+import { adminModifyUser } from '../../store/admin.actions';
 
 @Component({
   selector: 'app-user-details',
@@ -16,7 +18,8 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private adminService: AdminService
+    private adminService: AdminService,
+    private store: Store
   ) { }
 
   private subscription: Subscription | undefined;
@@ -48,15 +51,19 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     let password = this.user.password;
     let rol = this.form.get('rol')?.value;
 
+    let user: User = { id: this.id, nombre: nombre, email: email, password: password, rol: rol };
+
     if(this.form.valid) {
-      this.subscription = this.adminService.updateUser(this.id, nombre, email, password, rol)
+      /* this.subscription = this.adminService.updateUser(user)
         .subscribe( res => {
           if(res){
             this.router.navigate(['usuarios']);
           } else {
             this.error = "Hubo un error actualizando los datos del usuario"
           }
-        });
+        }); */
+        this.store.dispatch(adminModifyUser({ user }));
+        this.router.navigate(['usuarios']);
     }
   }
 
